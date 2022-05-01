@@ -1,7 +1,8 @@
-import 'package:codelab_3/pages/landing_page.dart';
+import 'package:codelab_3/pages/list_page.dart';
 import 'package:flutter/material.dart';
 
 import '../models/bottom_bar_item.dart';
+import '../colors.dart';
 
 class BottomBarWidget extends StatefulWidget {
   @override

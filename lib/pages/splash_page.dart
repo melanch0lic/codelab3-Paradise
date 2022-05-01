@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 
+import '../colors.dart';
 import 'landing_page.dart';
-
-const Color mainThemeColor = Color(0xFF272D8D);
 
 class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Future.delayed(Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 2), () {
       Navigator.of(context)
           .push(MaterialPageRoute(builder: (context) => LandingPage()));
     });

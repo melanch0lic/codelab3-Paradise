@@ -17,7 +17,7 @@ class RatingWidget extends StatelessWidget {
             );
           }),
         ),
-        SizedBox(
+        const SizedBox(
           width: 5,
         ),
         Text(

@@ -1,68 +1,88 @@
-import 'package:codelab_3/widgets/attraction_card.dart';
 import 'package:flutter/material.dart';
 
-import '../models/attraction.dart';
-import '../widgets/bottom_bar_widget.dart';
-
-const Color mainThemeColor = Color(0xFF272D8D);
+import '../widgets/landing_search_bar.dart';
+import '../colors.dart';
 
 class LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: mainThemeColor,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        iconTheme: const IconThemeData(color: Colors.white),
-        elevation: 0,
-        title: const Center(
-          child: Icon(
-            Icons.pool,
-            color: Colors.white,
-          ),
-        ),
-        actions: [
-          Container(
-            margin: const EdgeInsets.only(right: 15),
-            child: const Icon(
-              Icons.notifications,
-              color: Colors.white,
-            ),
-          )
-        ],
-      ),
-      body: ClipRRect(
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(50),
-          topRight: Radius.circular(50),
-        ),
-        child: Container(
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(50),
-              topRight: Radius.circular(50),
-            ),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Expanded(
-                  child: ListView.builder(
-                itemCount: attractionsList.length,
-                itemBuilder: (context, index) {
-                  Attraction attr = attractionsList[index];
-
-                  return AttractionCard(
-                    attraction: attr,
-                  );
-                },
+        drawer: Drawer(
+          child: Container(
+              padding: EdgeInsets.all(20),
+              alignment: Alignment.bottomLeft,
+              child: Icon(
+                Icons.pool,
+                color: mainThemeColor,
+                size: 80,
               )),
-              BottomBarWidget(),
-            ],
-          ),
         ),
-      ),
-    );
+        body: Stack(
+          children: [
+            Container(
+                decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: NetworkImage(
+                    'https://images.pexels.com/photos/261394/pexels-photo-261394.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'),
+                fit: BoxFit.cover,
+              ),
+            )),
+            Container(
+              color: mainThemeColor.withOpacity(0.7),
+            ),
+            AppBar(
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              iconTheme: const IconThemeData(color: Colors.white),
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                const Text(
+                  'Paradise',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30,
+                  ),
+                ),
+                const SizedBox(height: 60),
+                const Icon(
+                  Icons.pool,
+                  color: Colors.white,
+                  size: 80,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  'CHOOSE LOCATION TO',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white.withOpacity(0.5),
+                  ),
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                const Text(
+                  'Find a Hotel',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                LandingSearchBar(),
+              ],
+            ),
+          ],
+        ));
   }
 }

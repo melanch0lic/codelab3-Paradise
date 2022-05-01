@@ -1,8 +1,8 @@
 import 'package:codelab_3/models/attraction.dart';
-import 'package:codelab_3/pages/landing_page.dart';
 import 'package:flutter/material.dart';
 
 import 'rating_widget.dart';
+import '../colors.dart';
 
 class AttractionCard extends StatelessWidget {
   Attraction? attraction;
@@ -12,7 +12,7 @@ class AttractionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(20),
+      margin: const EdgeInsets.all(20),
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(40),
@@ -25,7 +25,7 @@ class AttractionCard extends StatelessWidget {
           ]),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(40),
-        child: Container(
+        child: SizedBox(
           height: 300,
           child: Stack(
             children: [
@@ -51,23 +51,23 @@ class AttractionCard extends StatelessWidget {
                           children: [
                             Text(
                               attraction!.name!,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Colors.black,
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 5,
                             ),
                             Row(
                               children: [
-                                Icon(
+                                const Icon(
                                   Icons.pin_drop,
                                   color: Colors.grey,
                                   size: 12,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 5,
                                 ),
                                 Text(
@@ -80,7 +80,7 @@ class AttractionCard extends StatelessWidget {
                                 )
                               ],
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 5,
                             ),
                             RatingWidget(
@@ -94,13 +94,13 @@ class AttractionCard extends StatelessWidget {
                           children: [
                             Text(
                               '\$${attraction!.price!.toStringAsFixed(2)}',
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Colors.black,
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 5,
                             ),
                             Text(
@@ -121,12 +121,12 @@ class AttractionCard extends StatelessWidget {
               Align(
                 alignment: Alignment.centerRight,
                 child: Container(
-                  child: Icon(
+                  child: const Icon(
                     Icons.favorite,
                     color: Colors.white,
                     size: 15,
                   ),
-                  margin: EdgeInsets.only(right: 10),
+                  margin: const EdgeInsets.only(right: 10),
                   width: 40,
                   height: 40,
                   decoration: BoxDecoration(
