@@ -2,6 +2,7 @@ import 'package:codelab_3/widgets/attraction_card.dart';
 import 'package:flutter/material.dart';
 
 import '../models/attraction.dart';
+import '../widgets/bottom_bar_widget.dart';
 
 const Color mainThemeColor = Color(0xFF272D8D);
 
@@ -56,7 +57,8 @@ class LandingPage extends StatelessWidget {
                     attraction: attr,
                   );
                 },
-              ))
+              )),
+              BottomBarWidget(),
             ],
           ),
         ),
